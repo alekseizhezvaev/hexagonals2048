@@ -389,15 +389,15 @@ export const App = () => {
 
       <div className="buttons">
         Select radius:
-        <button className={cn('button', {'button_active': levelState === '2'})} onClick={changeLevel} type="button">
+        <button className="button" onClick={changeLevel} type="button">
           2
         </button>
 
-        <button className={cn('button', {'button_active': levelState === '3'})} onClick={changeLevel} type="button">
+        <button className="button" onClick={changeLevel} type="button">
           3
         </button>
 
-        <button className={cn('button', {'button_active': levelState === '4'})} onClick={changeLevel} type="button">
+        <button className="button" onClick={changeLevel} type="button">
           4
         </button>
       </div>

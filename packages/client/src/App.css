@@ -34,10 +34,6 @@
   cursor: pointer;
 }
 
-.button_active {
-  opacity: 50%;
-}
-
 .status__text {
   font-size: large;
   margin-top: 25px;
