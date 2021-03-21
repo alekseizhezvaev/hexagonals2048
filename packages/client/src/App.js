@@ -8,7 +8,7 @@ export const App = () => {
   const [arrHexagonsWithValues, setArrHexagonsWithValues] = useState([])
   const selectRef = useRef(null)
   const [levelState, setLevelState] = useState(2)
-  const [gameStatus, setGameStatus] = useState('playing')
+  const [gameStatus, setGameStatus] = useState('Select radius')
 
   const getGameStatus = useCallback(arr => {
     const arrComparedValues = arr.map(hex1 => {
