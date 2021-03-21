@@ -86,7 +86,7 @@ export const App = () => {
   }, [levelState])
 
   const actionX = useCallback(key => {
-    //Отсортированный массив хексагонов по y
+    // Sort by y coordinate
     const sortArr = arrHexagonsWithValues.sort((a, b) => {
       if(key === 'w') {
         return a.y < b.y ? 1 : -1
@@ -95,12 +95,14 @@ export const App = () => {
       return a.y > b.y ? 1 : -1
     })
 
+    // Move all hexagons to maximum coordinate
     const arrCalcsCoordinates = sortArr.map(hex => {
       let x = hex.x
       let y = calcCoordinate(x, key)
       return {...hex, y: y, z: -x - y, oldX: hex.x, oldY: hex.y, oldZ: hex.z}
     })
 
+    // Array of identical hexagons by coordinates: [[...], [...], [...]]
     const arraysSameCoordinates = arrCalcsCoordinates.reduce((acc, hex) => {
       if(acc.length === 0) {
         acc.push([hex])
@@ -118,6 +120,7 @@ export const App = () => {
       return acc
     }, [])
 
+    //Calculation of values ​​and offset of hexagons in the opposite direction
     const arrCalcsValuesHexes = arraysSameCoordinates.map(arrHexes => {
       if(arrHexes.length === 1) {
         return arrHexes[0]
@@ -127,7 +130,7 @@ export const App = () => {
       const result = []
 
       arrHexes.forEach((hex, index) => {
-        //Пропустить hex по текущему индексу
+        //Skip hex by current index
         if(skipHex.some(el => el === index)) {
           return
         }
@@ -170,7 +173,6 @@ export const App = () => {
   }, [arrHexagonsWithValues, fetchHex, calcCoordinate])
 
   const actionY = useCallback(key => {
-    //Отсортированный массив хексагонов по x
     const sortArr = arrHexagonsWithValues.sort((a, b) => {
       if(key === 'e') {
         return a.x < b.x ? 1 : -1
@@ -211,7 +213,6 @@ export const App = () => {
       const result = []
 
       arrHexes.forEach((hex, index) => {
-        //Пропустить hex по текущему индексу
         if(skipHex.some(el => el === index)) {
           return
         }
@@ -254,7 +255,6 @@ export const App = () => {
   }, [arrHexagonsWithValues, fetchHex, calcCoordinate])
 
   const actionZ = useCallback(key => {
-    //Отсортированный массив хексагонов по x
     const sortArr = arrHexagonsWithValues.sort((a, b) => {
       if(key === 'd') {
         return a.x < b.x ? 1 : -1
@@ -295,7 +295,6 @@ export const App = () => {
       const result = []
 
       arrHexes.forEach((hex, index) => {
-        //Пропустить hex по текущему индексу
         if(skipHex.some(el => el === index)) {
           return
         }
