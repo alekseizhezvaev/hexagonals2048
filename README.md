@@ -6,8 +6,8 @@
 
 Also, do not forget to install dependencies in the dirs:
 
-## cd packages/client
-### npm install
+`cd packages/client`
+`npm install`
 
-## cd ../server
-### npm install
+`cd ../server`
+`npm install`
