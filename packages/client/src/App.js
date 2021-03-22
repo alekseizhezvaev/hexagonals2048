@@ -404,6 +404,7 @@ export const App = () => {
     </div>
 
     <div className="status__text">Game Status: <span data-status={gameStatus}>{gameStatus}</span></div>
+    {gameStatus === 'playing' && <div className="rules__text">Use q, w, e, a, s, d keys for move</div>}
 
     <div className="field">
       <div className="hexgrid">
