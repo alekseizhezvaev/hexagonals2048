@@ -64,10 +64,11 @@ export const App = () => {
     })
 
     const result = await response.json();
-    setArrHexagonsWithValues([...fetchArr, ...result])
+    const newArrHexagonsWithValues = [...fetchArr, ...result]
+    setArrHexagonsWithValues(newArrHexagonsWithValues)
 
-    if(grid.length === arrHexagonsWithValues.length) {
-      getGameStatus([...fetchArr, ...result])
+    if(grid.length === newArrHexagonsWithValues.length) {
+      getGameStatus(newArrHexagonsWithValues)
     }
   }, [arrHexagonsWithValues, getGameStatus, grid.length, levelState])
 
